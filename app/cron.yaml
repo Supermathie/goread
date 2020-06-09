@@ -2,7 +2,11 @@ cron:
 - description: hourly feed update
   url: /tasks/update-feeds
   schedule: every 5 minutes
-# enable as needed, to cleanup obsolete datastore entities
+#
+# Enable as needed, to cleanup obsolete datastore entities.
+# Running this cleanup task may incur costs for deletes,
+# probably only a few cents per day.
 #- description: datastore cleanup
 #  url: /tasks/datastore-cleanup
-#  schedule: every 60 minutes
+#  schedule: every 30 minutes
+# TODO cleanup job for feed story content: F > S > SC
