@@ -34,8 +34,8 @@ import (
 	"sync"
 	"time"
 
+	"github.com/mblakele/goread/sanitizer"
 	"github.com/mjibson/goon"
-	"github.com/mjibson/goread/sanitizer"
 	"golang.org/x/net/html/charset"
 
 	"google.golang.org/appengine"
