@@ -4,7 +4,7 @@ on:
   push:
     branches: [ master ]
   pull_request:
-    branches: "**"
+    branches: '**'
 
 jobs:
 
@@ -16,7 +16,7 @@ jobs:
     - name: Set up Go 1.x
       uses: actions/setup-go@v2
       with:
-        go-version: ^1.13
+        go-version: ^1.11
       id: go
 
     - name: Check out code into the Go module directory
@@ -29,6 +29,9 @@ jobs:
             curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
             dep ensure
         fi
+        
+    - name: Configure
+      run: cp settings.go.dist settings.go
 
     - name: Build
       run: go build -v .
