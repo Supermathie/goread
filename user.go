@@ -34,10 +34,9 @@ import (
 	"sync"
 	"time"
 
-	"code.google.com/p/go-charset/charset"
-	_ "code.google.com/p/go-charset/data"
+	"github.com/mblakele/goread/sanitizer"
 	"github.com/mjibson/goon"
-	"github.com/mjibson/goread/sanitizer"
+	"golang.org/x/net/html/charset"
 
 	"google.golang.org/appengine"
 	"google.golang.org/appengine/blobstore"
@@ -146,7 +145,7 @@ func ImportOpml(w http.ResponseWriter, r *http.Request) {
 
 	// Preflight the OPML, so we can report any errors.
 	d := xml.NewDecoder(bytes.NewReader(fdata))
-	d.CharsetReader = charset.NewReader
+	d.CharsetReader = charset.NewReaderLabel
 	d.Strict = false
 	opml := Opml{}
 	if err := d.Decode(&opml); err != nil {

@@ -31,11 +31,13 @@ import (
 	"time"
 	"unicode/utf8"
 
+	"github.com/mblakele/goread/atom"
+	"github.com/mblakele/goread/rdf"
+	"github.com/mblakele/goread/rss"
+	"github.com/mblakele/goread/sanitizer"
+
 	"github.com/mjibson/goon"
-	"github.com/mjibson/goread/atom"
-	"github.com/mjibson/goread/rdf"
-	"github.com/mjibson/goread/rss"
-	"github.com/mjibson/goread/sanitizer"
+
 	"golang.org/x/net/html/charset"
 	"golang.org/x/text/encoding"
 	"golang.org/x/text/encoding/charmap"

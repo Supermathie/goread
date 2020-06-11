@@ -32,8 +32,8 @@ import (
 	"sync"
 	"time"
 
-	"code.google.com/p/go-charset/charset"
 	"github.com/mjibson/goon"
+	"golang.org/x/net/html/charset"
 
 	"google.golang.org/appengine"
 	"google.golang.org/appengine/blobstore"
@@ -113,7 +113,7 @@ func ImportOpmlTask(w http.ResponseWriter, r *http.Request) {
 	log.Debugf(c, "reader import for %v, skip %v", userid, skip)
 
 	d := xml.NewDecoder(blobstore.NewReader(c, appengine.BlobKey(bk)))
-	d.CharsetReader = charset.NewReader
+	d.CharsetReader = charset.NewReaderLabel
 	d.Strict = false
 	opml := Opml{}
 	err := d.Decode(&opml)
